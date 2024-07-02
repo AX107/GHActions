@@ -1,0 +1,12 @@
+name: pull-hello
+on: 
+  pull_request:
+    branches:
+       - dev
+jobs:
+  pull-job:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-step
+        run: echo "Hello World Pull Request!"
