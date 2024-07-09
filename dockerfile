@@ -20,4 +20,4 @@ RUN npm run build --prod
 FROM nginx:alpine
  
 #Copy built angular app files to NGINX HTML folder
-COPY --from=build /usr/src/app/dist/card-game/ /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/gh_action/ /usr/share/nginx/html
