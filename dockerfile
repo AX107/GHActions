@@ -22,4 +22,10 @@ FROM nginx:alpine
 #Copy built angular app files to NGINX HTML folder
 COPY --from=build /usr/src/app/dist/gh_action/ /usr/share/nginx/html
 
-EXPOSE 80
+EXPOSE 4200
+
+# Add a health check
+HEALTHCHECK --interval=30s --timeout=10s --retries=3 CMD curl -f http://localhost:4200 || exit 1
+
+# Start NGINX server
+CMD ["nginx", "-g", "daemon off;"]
