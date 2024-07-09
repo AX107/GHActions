@@ -21,3 +21,5 @@ FROM nginx:alpine
  
 #Copy built angular app files to NGINX HTML folder
 COPY --from=build /usr/src/app/dist/gh_action/ /usr/share/nginx/html
+
+EXPOSE 80
